@@ -6,9 +6,9 @@
 - qunati anni ha*/
 
 const numeriKm = parseInt(prompt (`Inserisci i km`));
-const etàPasseggero = parseInt(prompt (`Inserisci la tua età`));
+const etaPasseggero = parseInt(prompt (`Inserisci la tua età`));
 console.log (`I tuoi km: `, numeriKm);
-console.log (`Età: `, etàPasseggero);
+console.log (`Età: `, etaPasseggero);
 
 /*Una volta ricevute queste informazioni, va calcolato il prezzo totale del biglietto sulle seguenti regole:
 - prezzo del biglietto è definito in base ai km (0,21€ al km)
@@ -19,20 +19,17 @@ il totale andrà scritto con due posizioni decimali*/
 
 const price = (numeriKm * 0.21);
 
-if (etàPasseggero < 18)
-{
-    let total = (price - (20 * price / 100)).toFixed(2);
-    console.log(`Prezzo totale: `, total);
-}
-else if (etàPasseggero >= 65)
-{
-    let total = (price - (40 * price / 100)).toFixed(2);
-    console.log(`Prezzo totale: `, total);
-}
+if (!isNaN(numeriKm) && !isNaN(etaPasseggero)) {
 
-else{
-    let total = price.toFixed(2);
-    console.log(`Prezzo totale: `, total);
+    if (etaPasseggero < 18) {
+        let total = (price - (20 * price / 100)).toFixed(2);
+        console.log(`Prezzo totale: `, total);
+    } else if (etaPasseggero >= 65) {
+        let total = (price - (40 * price / 100)).toFixed(2);
+        console.log(`Prezzo totale: `, total);
+    } else {
+        let total = price.toFixed(2);
+        console.log(`Prezzo totale: `, total);
+    }
 }
-
 
